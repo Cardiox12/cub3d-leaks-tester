@@ -1,0 +1,9 @@
+1 - Nombre invalide de specifiers
+2 - Duplication de specifiers
+3 - Map non fermee
+4 - Carcateres invalides a la fin du fichier
+5 - Couleur manquante
+6 - Resolution manquante
+7 - Couleur hors du range
+8 - Pas de point de depart
+9 - Plusieurs points de depart
