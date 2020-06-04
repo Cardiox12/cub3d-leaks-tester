@@ -5,7 +5,9 @@ if [[ "$1" != "" && -f "$1" ]] ; then
 		if  [ "${file: -4}" == ".cub" ] ; then
 			has_leak=$(valgrind --log-fd=1 $1 $file | grep -E "(definitely lost: [1-9]+ bytes in [0-9]+ blocks|indirectly lost: [1-9]+ bytes in [0-9]+ blocks)")
 			if [ "$has_leak" != "" ] ; then
+				error=$(echo "$file" | grep -Eoh "[0-9]+")
 				echo "leaks : $file"
+				cat info | grep "$error"
 			fi
 		fi
 	done
