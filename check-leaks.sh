@@ -1,5 +1,8 @@
 #!/bin/bash
 
+OKGREEN='\033[92m'
+ENDC='\033[0m'
+
 if [[ "$1" != "" && -f "$1" ]] ; then
 	for file in $(ls -d maps/**) ; do
 		if  [ "${file: -4}" == ".cub" ] ; then
@@ -8,6 +11,8 @@ if [[ "$1" != "" && -f "$1" ]] ; then
 				error=$(echo "$file" | grep -Eoh "[0-9]+")
 				echo "leaks : $file"
 				cat info | grep "$error"
+			else
+				printf "Test : $OKGREEN OK $ENDC\n"
 			fi
 		fi
 	done
